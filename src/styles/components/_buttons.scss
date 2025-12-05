@@ -1,8 +1,6 @@
-// Button component based on Figma design
 .button {
   @include button-base;
 
-  // Primary button (orange from Figma)
   &--primary {
     background-color: $color-accent;
     color: $color-secondary;
@@ -18,7 +16,6 @@
     }
   }
 
-  // Secondary button (outlined)
   &--secondary {
     background-color: transparent;
     color: $color-primary;
@@ -30,12 +27,10 @@
     }
   }
 
-  // Full width button
   &--full {
     width: 100%;
   }
 
-  // Disabled state
   &:disabled,
   &--disabled {
     opacity: 0.5;

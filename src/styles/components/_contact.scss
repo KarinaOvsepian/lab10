@@ -41,7 +41,6 @@
     }
   }
 
-  // Contact info
   &__info {
     display: flex;
     flex-direction: column;
@@ -64,20 +63,15 @@
     }
   }
 
-  // Contact form wrapper
   &__form-wrapper {
-    // Inherits
   }
 }
 
-// Form styles based on Figma
 .form {
-  // Form field
   &__field {
     margin-bottom: spacing(3);
   }
 
-  // Form label
   &__label {
     display: block;
     font-size: $font-size-small;
@@ -86,7 +80,6 @@
     color: $color-text;
   }
 
-  // Form input
   &__input {
     width: 100%;
     padding: spacing(1.5);
@@ -98,25 +91,21 @@
     border-radius: 0;
     transition: all $transition-base;
 
-    // Focus state
     &:focus {
       outline: none;
       border-color: $color-primary;
     }
 
-    // Placeholder
     &::placeholder {
       color: lighten-color($color-text, 50%);
     }
   }
 
-  // Textarea
   &__textarea {
     resize: vertical;
     min-height: 120px;
   }
 
-  // Form submit
   &__submit {
     margin-top: spacing(2);
   }

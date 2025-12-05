@@ -1,3 +1,4 @@
+@use 'variables' as *;
 // Media Query Mixins (Mobile-First) based on Figma breakpoints
 @mixin tablet {
   @media (min-width: #{$breakpoint-tablet}) {

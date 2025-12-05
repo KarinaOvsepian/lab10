@@ -1,10 +1,12 @@
-/* Error: Can't find stylesheet to import.
+/* Error: Undefined mixin.
  *   ,
- * 1 | @use 'utils' as *;
- *   | ^^^^^^^^^^^^^^^^^
+ * 4 | /   @include tablet {
+ * 5 | |     padding: spacing(8) 0;
+ * 6 | \   }
  *   '
- *   _base.scss 1:1  @import
- *   main.scss 9:9   root stylesheet */
+ *   components\_about.scss 4:3  @forward
+ *   components\index.scss 1:1   @use
+ *   main.scss 2:1               root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -14,5 +16,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @use 'utils' as *;\d\a   \2502  ^^^^^^^^^^^^^^^^^\a   \2575 \a   _base.scss 1:1  @import\a   main.scss 9:9   root stylesheet";
+  content: "Error: Undefined mixin.\a   \2577 \a 4 \2502  \250c    @include tablet {\a 5 \2502  \2502      padding: spacing(8) 0;\a 6 \2502  \2514    }\a   \2575 \a   components\\_about.scss 4:3  @forward\a   components\\index.scss 1:1   @use\a   main.scss 2:1               root stylesheet";
 }

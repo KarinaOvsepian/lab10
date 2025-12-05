@@ -1,21 +1,24 @@
-// Main SASS file with logical module imports
-
-// 1. Configuration
-@import 'utils/_variables';
-@import 'utils/_mixins';
-@import 'utils/_functions';
-
-// 2. Base style
-@import 'base';
-
-// 3. Components
-@import 'components/header';
-@import 'components/logo';
-@import 'components/buttons';
-
-// 4. Sections
-@import 'components/hero';
-@import 'components/products';
-@import 'components/categories';
-@import 'components/about';
-@import 'components/contact';
+@use 'base' as *;
+@use 'components' as *;
+@use 'utils' as *;
+ //// Main SASS file with logical module imports
+//
+//// 1. Configuration
+//@import 'utils/_variables';
+//@import 'utils/_mixins';
+//@import 'utils/_functions';
+//
+//// 2. Base style
+//@import 'base';
+//
+//// 3. Components
+//@import 'components/header';
+//@import 'components/logo';
+//@import 'components/buttons';
+//
+//// 4. Sections
+//@import 'components/hero';
+//@import 'components/products';
+//@import 'components/categories';
+//@import 'components/about';
+//@import 'components/contact';

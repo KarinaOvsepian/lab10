@@ -1,0 +1,53 @@
+//- Categories mixin
+mixin categoryCard(title, items)
+    .category-card
+        h3.category-card__title= title
+        .category-card__items
+            each item in items
+                .category-card__item
+                    .category-card__item-image
+                        img(src=item.image alt=item.name)
+
+//- Categories data
+-
+    var categories = {
+        title: 'Sound. Vision.',
+        subtitle: 'It\'s your pick.',
+        items: [
+            {
+                title: 'Portable speakers',
+                products: [
+                    { name: 'Beosound A5', image: 'images/portable-1.jpg' },
+                    { name: 'Beosound Explore', image: 'images/portable-2.jpg' }
+                ]
+            },
+            {
+                title: 'Earphones',
+                products: [
+                    { name: 'Beoplay EX', image: 'images/earphones-1.jpg' },
+                    { name: 'Beoplay E8', image: 'images/earphones-2.jpg' }
+                ]
+            },
+            {
+                title: 'Smart Home',
+                products: [
+                    { name: 'Beosound A9', image: 'images/smart-home-1.jpg' },
+                    { name: 'Beosound Balance', image: 'images/smart-home-2.jpg' }
+                ]
+            }
+        ]
+    }
+
+section.categories(id="categories")
+    .container
+        .categories__header
+            h2.categories__title= categories.title
+                br
+                | #{categories.subtitle}
+
+        .categories__grid
+            each category in categories.items
+                +categoryCard(category.title, category.products)
+
+        .categories__cta
+            button.button.button--primary.button--full Shop All

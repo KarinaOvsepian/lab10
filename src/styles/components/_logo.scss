@@ -1,0 +1,15 @@
+// Logo component based on Figma
+.logo {
+  display: inline-flex;
+  align-items: center;
+  font-size: rem(16);
+  font-weight: $font-weight-bold;
+  letter-spacing: 0.1em;
+  color: $color-primary;
+  transition: opacity $transition-base;
+  text-transform: uppercase;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}

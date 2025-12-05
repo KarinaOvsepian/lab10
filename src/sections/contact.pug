@@ -1,0 +1,53 @@
+//- Contact form based on Figma
+mixin formField(type, name, label, placeholder)
+    .form__field
+        label.form__label(for=name)= label
+        if type === 'textarea'
+            textarea.form__input.form__textarea(
+                id=name
+                name=name
+                placeholder=placeholder
+                rows="5"
+            )
+        else
+            input.form__input(
+                type=type
+                id=name
+                name=name
+                placeholder=placeholder
+            )
+
+section.contact(id="contact")
+    .container
+        .contact__inner
+            .contact__content
+                h2.contact__title Contact us
+
+                .contact__info
+                    .contact__info-item
+                        p.contact__info-label Name
+                        p.contact__info-value Kyiv
+
+                    .contact__info-item
+                        p.contact__info-label Phone number
+                        p.contact__info-value +1 (234) 5555-55-55
+
+                    .contact__info-item
+                        p.contact__info-label Email
+                        p.contact__info-value info@bo.com
+
+                    .contact__info-item
+                        p.contact__info-label Address
+                        p.contact__info-value 400 first ave.
+                            br
+                            | Suite 700
+                            br
+                            | Minneapolis, MN 55401
+
+            .contact__form-wrapper
+                form.form(action="#" method="post")
+                    +formField('text', 'name', 'Name', '')
+                    +formField('email', 'email', 'Email', '')
+                    +formField('textarea', 'message', 'Message', '')
+
+                    button.form__submit.button.button--primary.button--full(type="submit") Send

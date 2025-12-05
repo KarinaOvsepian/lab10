@@ -1,85 +1,96 @@
+// Media Query Mixins (Mobile-First) based on Figma breakpoints
+@mixin tablet {
+  @media (min-width: #{$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-desktop}) {
+    @content;
+  }
+}
+
+// Flexbox Mixins
 @mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-@mixin responsive($property, $small, $medium, $large) {
-  #{$property}: $small;
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  @media (min-width: 768px) {
-    #{$property}: $medium;
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Typography Mixins
+@mixin heading($size, $weight: $font-weight-bold) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height-tight;
+  margin: 0;
+}
+
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Button Mixin
+@mixin button-base {
+  display: inline-block;
+  padding: $spacing-sm $spacing-lg;
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &:hover {
+    transform: translateY(-1px);
   }
 
-  @media (min-width: 1200px) {
-    #{$property}: $large;
+  &:active {
+    transform: translateY(0);
   }
 }
 
-@mixin placeholder {
-  ::placeholder { @content; }
-  ::-webkit-input-placeholder { @content; }
-  ::-moz-placeholder { @content; }
-  :-ms-input-placeholder { @content; }
-}
+// Aspect Ratio Mixin
+@mixin aspect-ratio($width, $height) {
+  position: relative;
 
-@mixin flex-variant($display, $direction: false, $align: false, $justify: false, $wrap: false) {
-  display: $display;
-
-  @if $direction {
-    flex-direction: $direction;
+  &::before {
+    content: '';
+    display: block;
+    padding-top: ($height / $width) * 100%;
   }
 
-  @if $align {
-    align-items: $align;
-  }
-
-  @if $justify {
-    justify-content: $justify;
-  }
-
-  @if $wrap {
-    flex-wrap: $wrap;
-  }
-
-  & > * {
-    min-width: 0;
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }
 
-@mixin flex($direction: false, $align: false, $justify: false, $wrap: false) {
-  @include flex-variant(flex, $direction: $direction, $align: $align, $justify: $justify, $wrap: $wrap);
-}
+// Hover Effect Mixin
+@mixin hover-lift {
+  transition: all $transition-base;
 
-@mixin inline-flex($direction: false, $align: false, $justify: false, $wrap: false) {
-  @include flex-variant(inline-flex, $direction: $direction, $align: $align, $justify: $justify, $wrap: $wrap);
-}
-
-@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
-  @font-face {
-    font-family: quote($font-name);
-    font-style: $style;
-    font-weight: $weight;
-    src: url($file-name + '.eot');
-    src:
-            url($file-name + '.eot?#iefix') format('embedded-opentype'),
-            url($file-name + '.woff') format('woff'),
-            url($file-name + '.ttf') format('truetype'),
-            url($file-name + '.svg##{$font-name}') format('svg');
-  }
-}
-
-@mixin svg-icon($color: false, $width: false, $height: $width) {
-  display: inline-flex;
-  flex-shrink: 0;
-  @if ($width) {
-    width: $width;
-  }
-  @if ($height) {
-    height: $height;
-  }
-
-  @if $color {
-    fill: $color;
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
   }
 }

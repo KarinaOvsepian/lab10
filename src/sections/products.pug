@@ -1,0 +1,41 @@
+//- Product Card Mixin
+mixin productCard(name, description, price, image)
+    .product-card
+        .product-card__image
+            img(src=image alt=name)
+        .product-card__content
+            h3.product-card__name= name
+            p.product-card__description= description
+            p.product-card__price= price
+
+//- Products data based on Figma
+-
+    var products = [
+        {
+            name: 'BEOSOUND A5',
+            description: 'Huge sound anywhere – in the home or outdoors. Beosound A5 is a Wi-Fi and Bluetooth speaker with long-lasting battery and wireless charging built in.',
+            price: '$ 1299.00',
+            image: 'images/beosound-a5.jpg'
+        },
+        {
+            name: 'BEOPLAY HX',
+            description: 'Wireless noise-cancelling headphones. Listen in comfort whether you\'re on a call, working from home or taking a moment for yourself.',
+            price: '$ 499.00',
+            image: 'images/beoplay-hx.jpg'
+        },
+        {
+            name: 'BEOSOUND THEATRE',
+            description: 'Four patent-pending acoustic innovations in one sleek soundbar for an immersive experience. Made to fit any TV, and last for generations.',
+            price: '$ 3199.00',
+            image: 'images/beosound-theatre.jpg'
+        }
+    ]
+
+section.products(id="recommended")
+    .container
+        .products__header
+            h2.products__title Recommended
+
+        .products__grid
+            each product in products
+                +productCard(product.name, product.description, product.price, product.image)

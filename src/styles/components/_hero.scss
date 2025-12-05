@@ -1,0 +1,80 @@
+// Hero section based on Figma design
+.hero {
+  padding-top: spacing(8);
+  padding-bottom: 0;
+  min-height: 100vh;
+
+  @include tablet {
+    padding-top: spacing(10);
+    min-height: 100vh;
+  }
+
+  @include desktop {
+    padding-top: spacing(12);
+  }
+
+  // Hero inner wrapper
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 120px);
+
+    @include tablet {
+      min-height: calc(100vh - 140px);
+    }
+  }
+
+  // Hero image container
+  &__image {
+    position: relative;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  // Hero content (text overlay)
+  &__content {
+    position: absolute;
+    bottom: spacing(4);
+    left: $grid-mobile-margin;
+    right: $grid-mobile-margin;
+    z-index: 2;
+
+    @include tablet {
+      bottom: spacing(6);
+      left: $grid-tablet-margin;
+      right: auto;
+      max-width: 400px;
+    }
+
+    @include desktop {
+      bottom: spacing(8);
+      left: $grid-desktop-margin;
+      max-width: 500px;
+    }
+  }
+
+  // Hero title
+  &__title {
+    @include heading($font-size-h1 * 0.75);
+    color: $color-secondary;
+    margin-bottom: 0;
+    line-height: 1.1;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+
+    @include tablet {
+      @include heading($font-size-h1 * 0.95);
+    }
+
+    @include desktop {
+      @include heading($font-size-h1 * 1.2);
+    }
+  }
+}

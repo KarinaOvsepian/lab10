@@ -1,19 +1,28 @@
-extends ../layouts/main
+doctype html
+html(lang="uk")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(name="description" content="Bang & Olufsen - преміальна аудіотехніка")
+        title Bang & Olufsen - Your senses. Set free.
+        link(rel="stylesheet" href="css/main.css")
+    body
+        //- Header
+        include ../components/header
 
-block fonts
-    include ../includes/fonts
+        //- Main Content
+        main.main
+            //- Hero Section
+            include ../sections/hero
 
-append meta
-    include ../includes/meta
+            //- Products Section (Recommended)
+            include ../sections/products
 
-block data
-    include ../data/data
+            //- Categories Section
+            include ../sections/categories
 
-block header
-    include ../components/header
+            //- About Section (Heritage)
+            include ../sections/about
 
-block content
-    include ../components/content
-
-block footer
-    include ../components/footer
+            //- Contact Section
+            include ../sections/contact

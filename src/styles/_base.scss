@@ -1,0 +1,69 @@
+@use 'utils' as *;
+// Base styles
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: $font-size-base;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-base;
+  color: $color-text;
+  background-color: $color-background;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+// Container with Figma grid specs
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 $grid-mobile-margin;
+
+  @include tablet {
+    padding: 0 $grid-tablet-margin;
+  }
+
+  @include desktop {
+    max-width: $grid-desktop-max-width;
+    padding: 0 $grid-desktop-margin;
+  }
+}
+
+// Main
+.main {
+  overflow: hidden;
+  position: relative;
+}

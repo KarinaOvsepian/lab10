@@ -1,0 +1,123 @@
+// Contact section based on Figma
+.contact {
+  padding: spacing(6) 0 spacing(8) 0;
+
+  @include tablet {
+    padding: spacing(8) 0 spacing(10) 0;
+  }
+
+  @include desktop {
+    padding: spacing(10) 0 spacing(12) 0;
+  }
+
+  // Contact inner
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: spacing(5);
+
+    @include desktop {
+      grid-template-columns: 1fr 1fr;
+      gap: spacing(8);
+    }
+  }
+
+  // Contact content
+  &__content {
+    // Inherits
+  }
+
+  // Contact title
+  &__title {
+    @include heading($font-size-h2 * 0.75);
+    margin-bottom: spacing(4);
+
+    @include tablet {
+      @include heading($font-size-h2 * 0.85);
+    }
+
+    @include desktop {
+      @include heading($font-size-h2);
+    }
+  }
+
+  // Contact info
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: spacing(3);
+
+    &-item {
+      // Item
+    }
+
+    &-label {
+      font-size: $font-size-small;
+      color: $color-text-light;
+      margin-bottom: spacing(0.5);
+    }
+
+    &-value {
+      font-size: $font-size-base;
+      color: $color-text;
+      font-weight: $font-weight-medium;
+    }
+  }
+
+  // Contact form wrapper
+  &__form-wrapper {
+    // Inherits
+  }
+}
+
+// Form styles based on Figma
+.form {
+  // Form field
+  &__field {
+    margin-bottom: spacing(3);
+  }
+
+  // Form label
+  &__label {
+    display: block;
+    font-size: $font-size-small;
+    font-weight: $font-weight-medium;
+    margin-bottom: spacing(1);
+    color: $color-text;
+  }
+
+  // Form input
+  &__input {
+    width: 100%;
+    padding: spacing(1.5);
+    font-family: $font-primary;
+    font-size: $font-size-base;
+    color: $color-text;
+    background-color: $color-background;
+    border: 1px solid $color-border;
+    border-radius: 0;
+    transition: all $transition-base;
+
+    // Focus state
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+    }
+
+    // Placeholder
+    &::placeholder {
+      color: lighten-color($color-text, 50%);
+    }
+  }
+
+  // Textarea
+  &__textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  // Form submit
+  &__submit {
+    margin-top: spacing(2);
+  }
+}

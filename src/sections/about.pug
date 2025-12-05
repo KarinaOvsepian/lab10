@@ -1,0 +1,17 @@
+//- About/Heritage section based on Figma
+-
+    var aboutData = {
+        title: 'Timeless, for 50 years and counting',
+        text: 'Bang & Olufsen is expanding its Recreated Classics Programme, which sees the brand breathe new life into iconic designs of the past decades, making them even more desirable, even more sustainable for people who believe in the longevity of timeless design.',
+        image: 'images/heritage-turntable.jpg'
+    }
+
+section.about(id="about")
+    .container
+        .about__inner
+            .about__image
+                img(src=aboutData.image alt=aboutData.title)
+
+            .about__content
+                h2.about__title= aboutData.title
+                p.about__text= aboutData.text

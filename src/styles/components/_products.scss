@@ -1,0 +1,118 @@
+// Products/Recommended section based on Figma
+.products {
+  padding: spacing(6) 0;
+
+  @include tablet {
+    padding: spacing(8) 0;
+  }
+
+  @include desktop {
+    padding: spacing(10) 0;
+  }
+
+  // Products header
+  &__header {
+    margin-bottom: spacing(4);
+
+    @include tablet {
+      margin-bottom: spacing(5);
+    }
+  }
+
+  // Products title
+  &__title {
+    @include heading($font-size-h2 * 0.75);
+    margin-bottom: 0;
+
+    @include tablet {
+      @include heading($font-size-h2 * 0.9);
+    }
+
+    @include desktop {
+      @include heading($font-size-h2);
+    }
+  }
+
+  // Products grid
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: spacing(4);
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+      gap: spacing(5);
+    }
+
+    @include desktop {
+      grid-template-columns: repeat(3, 1fr);
+      gap: spacing(6);
+    }
+  }
+}
+
+// Product card component
+.product-card {
+  display: flex;
+  flex-direction: column;
+
+  // Product image
+  &__image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    margin-bottom: spacing(2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform $transition-slow;
+    }
+  }
+
+  // Hover effect on card
+  &:hover {
+    .product-card__image img {
+      transform: scale(1.05);
+    }
+
+    .product-card__name {
+      color: $color-accent;
+    }
+  }
+
+  // Product content
+  &__content {
+    flex: 1;
+  }
+
+  // Product name
+  &__name {
+    @include heading($font-size-h3 * 0.7, $font-weight-bold);
+    margin-bottom: spacing(1);
+    transition: color $transition-base;
+
+    @include tablet {
+      @include heading($font-size-h3 * 0.8, $font-weight-bold);
+    }
+  }
+
+  // Product description
+  &__description {
+    font-size: $font-size-small;
+    color: $color-text-light;
+    line-height: $line-height-base;
+    margin-bottom: spacing(1.5);
+  }
+
+  // Product price
+  &__price {
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    color: $color-text;
+  }
+}
